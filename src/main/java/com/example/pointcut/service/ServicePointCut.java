@@ -6,4 +6,6 @@ public interface ServicePointCut {
 
 	String testAspectThrowException() throws Exception;
 
+	String testAspectAroundAction();
+
 }

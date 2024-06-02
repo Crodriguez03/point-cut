@@ -58,4 +58,10 @@ public class ControllerImpl implements Controller {
 		}
 	}
 	
+	@Override
+	@GetMapping("around")
+	public String aroundAction() {
+		return serviceTest.testAspectMethodNoAnnotatedAround();
+	}
+	
 }

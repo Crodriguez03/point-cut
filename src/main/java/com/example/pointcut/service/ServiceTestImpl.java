@@ -29,4 +29,10 @@ public class ServiceTestImpl implements ServiceTest {
 		log.info("Entrada en el metodo al que se le ha agregado un punto de corte sin anotación");
 		return "OK";
 	}
+	
+	@Override
+	public String testAspectMethodNoAnnotatedAround() {
+		log.info("Entrada en el metodo al que se le ha agregado un punto de corte sin anotación AroundTest");
+		return "OK";
+	}
 }

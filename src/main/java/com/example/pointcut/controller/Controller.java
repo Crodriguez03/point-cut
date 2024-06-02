@@ -11,4 +11,6 @@ public interface Controller {
 	String throwActionClass();
 
 	String normalActionMethodNoAnnotated();
+
+	String aroundAction();
 }

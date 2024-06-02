@@ -1,8 +1,10 @@
 package com.example.pointcut.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -70,5 +72,19 @@ public class TestAspect {
 	@AfterReturning("noAnnotatedMethod()")
 	public void afterActionNoAnnotated(final JoinPoint jp) {
 		log.info("Entrada en el método afterAction de un método si anotación");
+	}
+	
+	
+	@Pointcut("execution(public String com.example.pointcut.service.ServiceTestImpl.testAspectMethodNoAnnotatedAround())")
+	public void noAnnotatedMethodAround() {
+	}
+	
+	@Around("noAnnotatedMethodAround()")
+	public Object aroundAction(final ProceedingJoinPoint joinPoint) throws Throwable {
+		log.info("Entrada en el método aroundAction");
+		log.info("Procedemos a llamar al método objetivo");
+		Object retVal = joinPoint.proceed();
+	    log.info("Acción después de la llamada al método objetivo");
+	    return retVal;
 	}
 }

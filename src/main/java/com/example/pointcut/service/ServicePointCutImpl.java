@@ -19,4 +19,10 @@ public class ServicePointCutImpl implements ServicePointCut {
 	public String testAspectThrowException() throws Exception {
 		throw new Exception();
 	}
+
+	@Override
+	public String testAspectAroundAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
